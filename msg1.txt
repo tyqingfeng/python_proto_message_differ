@@ -1,0 +1,21 @@
+syntax = "proto2";     //声明这是一个proto2文件
+
+package tutorial;    //让你生成的class在这个命名空间里
+
+message Person {    //相当于一个类
+  required string name = 1;    //像bool, int32, float, double, string这些基本类型都有的
+  required string id = 2;    //required表示必须有，否则为uninitialized，parse时候会失败
+
+  enum PhoneType {    //enum也可以有
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {    //相当于定义一个inner class
+    required string number = 1;
+    optional int32 type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phones = 4;    //repeated表示可以重复多次（包括0）
+}

@@ -1,0 +1,7 @@
+  
+message Person
+optional int32 id = 2;    //required表示必须有，否则为uninitialized，parse时候会失败        被比较字段:  required string id = 2;    //required表示必须有，否则为uninitialized，parse时候会失败
+optional string email = 3;    //option表示可以没有，他们都有default value        被比较字段:  required string email = 3;    //option表示可以没有，他们都有default value
+  
+message PhoneNumber
+optional PhoneType type = 2 [default = HOME];        被比较字段:    optional int32 type = 2 [default = HOME];
